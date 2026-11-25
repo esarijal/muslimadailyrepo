@@ -32,3 +32,20 @@ Format:
 4. Pastikan JSON valid, lalu commit ke `main`. GitHub Pages memperbarui berkas dalam beberapa menit.
 
 Berkas ini tidak boleh memuat data pengguna apa pun.
+
+## `dukung-<bahasa>-<platform>.json`
+
+Mengatur apakah banner Dukung di Beranda dan baris "Dukung MuslimaDaily" di Lainnya ditampilkan. Satu berkas per bahasa aplikasi (`id`, `en`) dan platform (`android`, `ios`):
+
+| Berkas | Dipakai saat |
+|---|---|
+| `dukung-id-android.json` | bahasa Indonesia, Android |
+| `dukung-id-ios.json` | bahasa Indonesia, iOS |
+| `dukung-en-android.json` | bahasa Inggris, Android |
+| `dukung-en-ios.json` | bahasa Inggris, iOS |
+
+Isi: `{"visible": true}` atau `{"visible": false}`.
+
+- Aplikasi mengunduh berkas saat dibuka, saat bahasa diganti, dan saat kembali aktif (paling sering 6 jam sekali).
+- Offline: Dukung disembunyikan. Gagal unduh atau JSON rusak: nilai terakhir yang tersimpan tetap dipakai.
+- iOS dibiarkan `false` sampai aturan donasi App Store sudah ditinjau.
